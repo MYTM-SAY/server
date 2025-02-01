@@ -1,12 +1,13 @@
 import express from 'express';
 import ProductController from './productController';
-import ProductUsecase from '../../../application/ProductUsecase';
 import ProductRepository from '../../../infrastructure/prisma/prismaRepositories/PrismaProductRepository';
+import ProductService from '../../../application/ProductService';
 
 const router = express.Router();
 const productRepository = new ProductRepository();
-const productUsecase = new ProductUsecase(productRepository);
+const productUsecase = new ProductService(productRepository);
 const productController = new ProductController(productUsecase); 
+
 
 router.get('/', productController.getProducts);
 router.post('/', productController.createProduct);

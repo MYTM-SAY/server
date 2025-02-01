@@ -2,7 +2,7 @@ import IProduct from '../domain/model/IProduct';
 import ProductRepository from '../domain/repository/productRepository';
 import APIError from './Errors/APIError';
 
-class ProductUseCase {
+class ProductService {
   constructor(private readonly productRepository: ProductRepository) {}
 
   async createProduct(product: IProduct): Promise<IProduct> {
@@ -43,4 +43,4 @@ class ProductUseCase {
   }
 }
 
-export default ProductUseCase;
+export default ProductService;
