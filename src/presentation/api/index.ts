@@ -22,11 +22,11 @@ function main() {
       },
       servers: [
         {
-          url: `http://localhost:${port}/api/v1`, // Dynamic server URL
+          url: `http://localhost:${port}/api/v1`,
         },
       ],
     },
-    apis: ['./src/presentation/api/**/*.ts'], // Automatically scans all the TypeScript files in api/
+    apis: ['./src/presentation/api/**/*.ts'],
   };
 
   const swaggerSpec = swaggerJsdoc(options);
@@ -35,7 +35,7 @@ function main() {
   app.use('/swagger', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
   app.get('/', (req, res) => {
     return res.json({
-      message: 'Hello 🌈Abd Elslam🌈',
+      message: 'Hello TutTrue',
     });
   });
 
@@ -43,11 +43,9 @@ function main() {
 
   apiRouter.use('/products', product);
 
-// Serve Swagger UI at /api-docs
-app.use('/api/v1', apiRouter);
-app.use('/swagger', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+  app.use('/api/v1', apiRouter);
+  app.use('/swagger', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
- //global exxception handling
   app.use((err: any, req: Request, res: Response, _next: NextFunction) => {
     res.status(err.status).json({ message: err.message });
   });

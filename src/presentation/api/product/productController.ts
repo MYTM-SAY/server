@@ -48,46 +48,46 @@ class ProductController {
     }
   };
 
-/**
- * @swagger
- * /products:
- *   get:
- *     summary: Retrieve a list of products
- *     description: Fetches all available products from the system.
- *     responses:
- *       200:
- *         description: A list of products
- *         content:
- *           application/json:
- *             schema:
- *               type: array
- *               items:
- *                 type: object
- *                 properties:
- *                   id:
- *                     type: integer
- *                     description: The unique identifier for the product
- *                   name:
- *                     type: string
- *                     description: The name of the product
- *                   price:
- *                     type: number
- *                     format: float
- *                     description: The price of the product
- *                   description:
- *                     type: string
- *                     description: A description of the product
- *       500:
- *         description: Internal server error
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 message:
- *                   type: string
- *                   description: The error message
- */
+  /**
+   * @swagger
+   * /products:
+   *   get:
+   *     summary: Retrieve a list of products
+   *     description: Fetches all available products from the system.
+   *     responses:
+   *       200:
+   *         description: A list of products
+   *         content:
+   *           application/json:
+   *             schema:
+   *               type: array
+   *               items:
+   *                 type: object
+   *                 properties:
+   *                   id:
+   *                     type: integer
+   *                     description: The unique identifier for the product
+   *                   name:
+   *                     type: string
+   *                     description: The name of the product
+   *                   price:
+   *                     type: number
+   *                     format: float
+   *                     description: The price of the product
+   *                   description:
+   *                     type: string
+   *                     description: A description of the product
+   *       500:
+   *         description: Internal server error
+   *         content:
+   *           application/json:
+   *             schema:
+   *               type: object
+   *               properties:
+   *                 message:
+   *                   type: string
+   *                   description: The error message
+   */
   getProducts = async (req: Request, res: Response, next: NextFunction) => {
     try {
       const products = await this.productUseCase.getProducts();
@@ -98,4 +98,3 @@ class ProductController {
   };
 }
 export default ProductController;
-
