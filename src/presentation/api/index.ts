@@ -7,6 +7,7 @@ import swaggerUi from 'swagger-ui-express';
 dotenv.config();
 
 import product from './product';
+import { clerkMiddleware } from '../../infrastructure/prisma/middleware/clerk';
 
 function main() {
   const app = express();
@@ -32,6 +33,7 @@ function main() {
   const swaggerSpec = swaggerJsdoc(options);
   app.use(cors());
   app.use(express.json());
+  app.use(clerkMiddleware);
   app.use('/swagger', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
   app.get('/', (req, res) => {
     return res.json({
@@ -47,7 +49,12 @@ function main() {
   app.use('/swagger', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
   app.use((err: any, req: Request, res: Response, _next: NextFunction) => {
-    res.status(err.status).json({ message: err.message });
+    const statusCode = err.status || 500;
+    
+    res.status(statusCode).json({
+      message: err.message || "Internal Server Error",
+      stack: process.env.NODE_ENV === "production" ? null : err.stack,
+    });
   });
 
   app.listen(port, () => {

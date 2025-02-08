@@ -1,4 +1,4 @@
-import Role from "../Enums/Roles";
+import Role from "../enum/Roles";
 import Community from "./Community";
 import User from "./User";
 

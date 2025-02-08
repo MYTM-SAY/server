@@ -2,6 +2,7 @@ import express from 'express';
 import ProductController from './productController';
 import ProductRepository from '../../../infrastructure/prisma/prismaRepositories/PrismaProductRepository';
 import ProductService from '../../../application/ProductService';
+import { isAuthenticated } from '../../../infrastructure/prisma/middleware/authMiddleware';
 
 const router = express.Router();
 const productRepository = new ProductRepository();

@@ -1,4 +1,4 @@
-import MaterialType from "../Enums/MaterialType";
+import MaterialType from "../enum/MaterialType";
 import Lesson from "./Lesson";
 
 interface Material {
