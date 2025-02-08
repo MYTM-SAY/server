@@ -1,5 +1,5 @@
-import IProduct from '../domain/model/IProduct';
-import ProductRepository from '../domain/repository/productRepository';
+import IProduct from '../domain/Models/IProduct';
+import ProductRepository from '../domain/Interfaces/productRepository';
 import APIError from './Errors/APIError';
 
 class ProductService {

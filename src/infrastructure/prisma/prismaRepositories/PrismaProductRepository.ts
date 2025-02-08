@@ -1,5 +1,5 @@
-import IProductRepository from '../../../domain/repository/productRepository';
-import IProduct from '../../../domain/model/IProduct';
+import IProductRepository from '../../../domain/Interfaces/productRepository';
+import IProduct from '../../../domain/Models/IProduct';
 import prisma from '../../prisma/PrismaClient';
 
 class PrismaProductRepository implements IProductRepository {
