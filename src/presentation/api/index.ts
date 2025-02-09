@@ -7,7 +7,7 @@ import swaggerUi from 'swagger-ui-express';
 dotenv.config();
 
 import product from './product';
-import { clerkMiddleware } from '../../infrastructure/prisma/middleware/clerk';
+import { clerkMiddleware } from '../middleware/clerk';
 
 function main() {
   const app = express();
