@@ -1,7 +1,7 @@
-import { AuthObject } from "@clerk/clerk-sdk-node";
-import "express";
+import { AuthObject } from '@clerk/clerk-sdk-node';
+import 'express';
 
-declare module "express" {
+declare module 'express' {
   interface Request {
     auth?: AuthObject;
   }

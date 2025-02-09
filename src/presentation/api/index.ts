@@ -52,9 +52,10 @@ function main() {
     const statusCode = err.status || 500;
     
     res.status(statusCode).json({
-      message: err.message || "Internal Server Error",
-      stack: process.env.NODE_ENV === "production" ? null : err.stack,
+      message: err.message || 'Internal Server Error',
+      stack: process.env.NODE_ENV === 'production' ? null : err.stack,
     });
+    _next();
   });
 
   app.listen(port, () => {

@@ -1,10 +1,10 @@
 enum MaterialType {
-    VIDEO = "VIDEO",
-    AUDIO = "AUDIO",
-    IMG = "IMG",
-    PDF = "PDF",
-    DOC = "DOC",
-    PPT = "PPT"
-  }
+  VIDEO = 'VIDEO',
+  AUDIO = 'AUDIO',
+  IMG = 'IMG',
+  PDF = 'PDF',
+  DOC = 'DOC',
+  PPT = 'PPT',
+}
 
-  export default MaterialType;
+export default MaterialType;
